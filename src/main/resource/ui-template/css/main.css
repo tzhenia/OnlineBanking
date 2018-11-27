@@ -63,28 +63,14 @@ a:hover {
   vertical-align: top;
 }
 
-.nav li a{
-    font-size: 16px;
-
-    text-shadow:none;
-    color:#000 !important;
-}
-
-.nav .active a{
-    background: none !important;;
-    color:#000 !important;
-    font-weight: bold;
-}
-
 .navbar-brand{
-    color: #980000 !important;
+    color:#fff !important;
     font-weight: 600;
 }
-
-.navbar-default{
-background-color:#fff;
-
+.navbar-brand:hover{
+    text-shadow: 0 1px 3px rgba(210,210,210,.5);
 }
+
 
 .footer{
 margin-top: 30px;
@@ -94,4 +80,12 @@ margin-top: 30px;
     color: #fff;
     text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.copyright a{
+    text-decoration:underline;
+}
+
+.copyright a:hover{
+    text-decoration:none;
 }
