@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="tzhenia.com">
     <link rel="icon" href="img/favicon.ico">
-    <title>Главная | Online Banking</title>
+    <title>Кабинет | Online Banking</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -31,39 +31,47 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Главная</a></li>
-                        <li><a href="about.html">О проекте</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Счета <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.html">Мои счета</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="index.html">Инвойсы</a></li>
+                            </ul>
+                        </li>
 
+                        <li><a href="about.html">Депозиты</a></li>
+                        <li><a href="about.html">Транзакции</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Другое <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="registration.html">Настройки</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Полезная информация</li>
+                                <li><a href="registration.html">Возможности</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="login.html">Вход</a></li>
-                        <li><a href="registration.html">Регистрация</a></li>
                         <li><a href="#"><img src="img/flags/eng.png" class="language-icon"> English</a></li>
                         <!--<li class="active"><a href="#"><img src="img/flags/ru.png" class="language-icon"> Русский</a></li>-->
+                        <li><a href="#">Выход</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
 
         <div class="container mt-55">
-            <div class="container-sm">
                 <div class="row">
-                    <div class="col-md-12"><h1 class="h1-home">Online Banking.</h1></div>
+                    <div class="col-md-12"><h1 class="h1-home">онлайн кабинет</h1></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <p class="home-text">
-                            Система банковские платежи.
-                            Депозитные и кредитные счета,
-                            банковские переводы, оплата счетов.<br><br>
-                            <a class="btn btn-success" href="login.html">Вход</a>
-                        </p>
-                    </div>
+                    <div class="col-md-3"> ... </div>
+                    <div class="col-md-9"> ... </div>
                 </div>
                 <div class="row footer">
                     <div class="col-md-12 copyright"> <p>by <a href="https://tzhenia.com" target="_blank">Yevhenii Taranukha</a><br> on <a href="https://github.com/tzhenia/onlineBanking" target="_blank">GitHub</a></p></div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

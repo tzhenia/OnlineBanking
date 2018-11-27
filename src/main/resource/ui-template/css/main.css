@@ -89,3 +89,8 @@ margin-top: 30px;
 .copyright a:hover{
     text-decoration:none;
 }
+
+.language-icon{
+    width:16px;
+    border: 0 !important;
+}
