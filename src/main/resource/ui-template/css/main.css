@@ -22,12 +22,17 @@ a{
     margin-right: auto;
 }
 
-.h1-home{
+.h-home{
     color:#fff;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
     text-align: center;
 
 }
+
+.h-home small{
+    color:#fff;
+}
+
 .home-text{
     font-size: 16px;
     color:#fff;
@@ -152,4 +157,19 @@ a{
 .block-all-cards div a{
     text-decoration:underline;
     font-size:16px;
+}
+
+.cards-number-on-white-bg{
+    font-size:15px;
+    text-align:center;
+}
+
+.cards-balance-on-white-bg{
+    font-size:24px;
+    text-align:center;
+}
+
+.cards-name-on-white-bg{
+    font-size:13px;
+    text-align:center;
 }
