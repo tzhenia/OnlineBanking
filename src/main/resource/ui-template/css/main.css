@@ -4,10 +4,8 @@ body {
     background-color: #bb2424;
 }
 
-a,
-a:focus,
-a:hover {
-  color: #fff;
+a{
+  color: #000;
 }
 
 .container-sm{
@@ -38,7 +36,15 @@ a:hover {
 }
 
 .mt-55{
-    margin-top: 55px;
+    margin-top: 55px !important;
+}
+
+.mt-10{
+    margin-top: 10px !important;
+}
+
+.mt-15{
+    margin-top: 15px !important;
 }
 
 .btn-default,
@@ -73,7 +79,7 @@ a:hover {
 
 
 .footer{
-margin-top: 30px;
+    margin-top: 30px;
 }
 
 .copyright{
@@ -84,6 +90,7 @@ margin-top: 30px;
 
 .copyright a{
     text-decoration:underline;
+     color: #fff;
 }
 
 .copyright a:hover{
@@ -93,4 +100,56 @@ margin-top: 30px;
 .language-icon{
     width:16px;
     border: 0 !important;
+}
+
+.bg-white-div{
+    box-sizing:border-box;
+    background:#fff;
+    border-radius:4px;
+    padding:15px 10px;
+    margin:0 10px;
+    position:relative;
+}
+
+.cards-balance{
+    color:#fff;
+    font-size:28px;
+    font-weight:600;
+}
+
+.cards-info{
+    color:#fff;
+    font-size:16px;
+    text-align:right;
+}
+
+.transaction-history{
+    border-bottom: 1px solid #cecece;
+    margin-top:3px;
+    margin-bottom:3px;
+}
+
+.transaction-history-money, .transaction-history-date{
+    text-align:right;
+}
+
+.transaction-history-money{
+    font-weight:600;
+}
+
+.transaction-history-money small{
+    font-size:55%;
+}
+
+.money-plus{
+    color:#335f18;
+}
+
+.money-minus{
+    color:#b1231f;
+}
+
+.block-all-cards div a{
+    text-decoration:underline;
+    font-size:16px;
 }

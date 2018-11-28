@@ -1,0 +1,8 @@
+@media only screen and (max-width: 475px)  {
+
+.transaction-history-name, .transaction-history-date, .transaction-history-money, .cards-balance, .cards-info{
+    text-align:center;
+}
+
+
+}
