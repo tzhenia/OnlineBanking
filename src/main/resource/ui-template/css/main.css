@@ -33,6 +33,10 @@ a{
     color:#fff;
 }
 
+.h3-xs{
+    margin-top:0px;
+}
+
 .home-text{
     font-size: 16px;
     color:#fff;
@@ -133,7 +137,12 @@ a{
     margin-bottom:3px;
 }
 
-.transaction-history-money, .transaction-history-date{
+.transaction-history-date{
+    color:#;
+    padding-right:15px;
+}
+
+.transaction-history-money{
     text-align:right;
 }
 
@@ -184,3 +193,4 @@ a{
 .text-info-white{
     color:#fff;
 }
+
