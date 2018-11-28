@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="tzhenia.com">
     <link rel="icon" href="img/favicon.ico">
-    <title>Мои счета | Online Banking</title>
+    <title>Редактировать счет | Online Banking</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/media.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                             </ul>
                         </li>
 
-                        <li><a href="#">Депозиты</a></li>transaction
+                        <li><a href="#">Депозиты</a></li>
                         <li><a href="transactions.html">Транзакции</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Другое <span class="caret"></span></a>
@@ -65,7 +65,7 @@
         </nav>
         <div class="container mt-55">
             <div class="row">
-                <div class="col-md-12"><h1 class="h-home">Мои счета</h1></div>
+                <div class="col-md-12"><h1 class="h-home">Настройки счета</h1></div>
             </div>
             <div class="row">
                 <div class="col-md-3">
@@ -106,62 +106,31 @@
                             </div>
                         </div>
                     </div>
-                 </div>
+                </div>
                 <div class="col-md-9">
+
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="col-sm-6 cards-balance">
-                                12 345,94 <small>USD</small>
-                            </div>
-                            <div class="col-sm-6 cards-info">
-                                Универсальна карта <br>
-                                0000 0000 0000 0000 <small>(12/2022)</small>
-                            </div>
+                        <div class="col-sm-6 text-center">
+                            <h3 class="h-home">0000 0000 0000 0000</h3>
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" placeholder="Имя счета">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="limit" placeholder="Желаемый кредитный лимит">
+                                </div>
+                                <button type="submit" class="btn btn-success">Сохранить</button>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="h-home">Важная информация</h3>
+                            <p class="text-info-white">
+                                После изменения кредитного лимита, Вашу заявка должна дождаться одобрения.
+                            </p>
                         </div>
                     </div>
 
-                    <div class="row bg-white-div">
 
-                            <div class="col-sm-12"><h3 class="h3-xs">10 последних операций</h3></div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-minus">-22231,93 <small>USD</small></div>
-                            </div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-plus">+22231,93 <small>USD</small></div>
-                            </div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-minus">+22231,93 <small>USD</small></div>
-                            </div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-minus">+22231,93 <small>USD</small></div>
-                            </div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-plus">+22231,93 <small>USD</small></div>
-                            </div>
-
-                            <div class="col-sm-12 transaction-history">
-                                <div class="col-sm-6 transaction-history-name">0000 0000 0000 0000 - Имя Фамилия</div>
-                                <div class="col-sm-3 transaction-history-date">11.11.2011 <small>13:59</small></div>
-                                <div class="col-sm-3 transaction-history-money money-plus">+22231,93 <small>USD</small></div>
-                            </div>
-
-                    </div>
-                </div>
             </div>
             <div class="row footer">
                 <div class="col-md-12 copyright"> <p>by <a href="https://tzhenia.com" target="_blank">Yevhenii Taranukha</a><br> on <a href="https://github.com/tzhenia/onlineBanking" target="_blank">GitHub</a></p></div>

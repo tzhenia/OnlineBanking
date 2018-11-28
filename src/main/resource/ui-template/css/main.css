@@ -113,7 +113,6 @@ a{
     border-radius:4px;
     padding:15px 10px;
     margin:0 10px;
-    position:relative;
 }
 
 .cards-balance{
@@ -154,9 +153,17 @@ a{
     color:#b1231f;
 }
 
+.block-credit-info, .block-all-cards{
+    text-align:center;
+}
+
 .block-all-cards div a{
     text-decoration:underline;
-    font-size:16px;
+    font-size:14px;
+}
+
+.block-all-cards div:first-child a{
+    text-decoration:none;
 }
 
 .cards-number-on-white-bg{
@@ -172,4 +179,8 @@ a{
 .cards-name-on-white-bg{
     font-size:13px;
     text-align:center;
+}
+
+.text-info-white{
+    color:#fff;
 }
