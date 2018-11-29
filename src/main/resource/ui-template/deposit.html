@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="tzhenia.com">
     <link rel="icon" href="img/favicon.ico">
-    <title>Транзакции | Online Banking</title>
+    <title>Депозит | Online Banking</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/media.css" rel="stylesheet">
@@ -41,8 +41,8 @@
                             </ul>
                         </li>
 
-                        <li><a href="deposit.html">Депозит</a></li>
-                        <li class="active"><a href="transactions.html">Транзакции</a></li>
+                        <li class="active"><a href="deposit.html">Депозит</a></li>
+                        <li><a href="transactions.html">Транзакции</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Другое <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -66,36 +66,65 @@
         </nav>
         <div class="container mt-55">
             <div class="row">
-                <div class="col-sm-12"><h1 class="h-home">Транзакции</h1></div>
+                <div class="col-sm-12"><h1 class="h-home">Депозит</h1></div>
+            </div>
+
+            <div class="row mt-15">
+                <div class="col-sm-6 col-xs-12">
+                    <div class="row bg-white-div">
+                        <div class="col-xs-12 cards-balance-on-white-bg ">123 USD</div>
+                        <div class="row">
+                            <form>
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option selected="">0000 0000 0000 0000 - Name card - 1233,73 USD</option>
+                                            <option>0000 0000 0000 0001 - Name card - 1233,73 USD</option>
+                                            <option>0000 0000 0000 0002 - Name card - 1233,73 USD</option>
+                                            <option>0000 0000 0000 0003 - Name card - 1233,73 USD</option>
+                                            <option>0000 0000 0000 0004 - Name card - 1233,73 USD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 text-right">
+                                    <button type="submit" class="btn btn-info btn-md btn-block">Вывести средства</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <form>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <option selected>0000 0000 0000 0000 - Name card - 1233,73 USD</option>
+                                    <option>0000 0000 0000 0001 - Name card - 1233,73 USD</option>
+                                    <option>0000 0000 0000 0002 - Name card - 1233,73 USD</option>
+                                    <option>0000 0000 0000 0003 - Name card - 1233,73 USD</option>
+                                    <option>0000 0000 0000 0004 - Name card - 1233,73 USD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 mt-7">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="exampleInputPhone" placeholder="Сумма пополнения">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 mt-7">
+                            <button type="submit" class="btn btn-success btn-md btn-block">Пополнить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <div class="row">
-            <form>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option selected>0000 0000 0000 0000 - Name card - 1233,73 USD</option>
-                            <option>0000 0000 0000 0001 - Name card - 1233,73 USD</option>
-                            <option>0000 0000 0000 0002 - Name card - 1233,73 USD</option>
-                            <option>0000 0000 0000 0003 - Name card - 1233,73 USD</option>
-                            <option>0000 0000 0000 0004 - Name card - 1233,73 USD</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="exampleInputPhone" placeholder="Карта получателя">
-                    </div>
-                </div>
-                <div class="col-sm-2 text-right">
-                    <button type="submit" class="btn btn-success btn-md btn-block">Отправить</button>
-                </div>
-            </form>
+
             </div>
             <div class="row">
                 <div class="col-md-12">
 
-                    <h3 class="h-home">История транзакций</h3>
+                    <h3 class="h-home">История начислений</h3>
                     <div class="row bg-white-div">
 
                         <div class="col-sm-12 transaction-history">
