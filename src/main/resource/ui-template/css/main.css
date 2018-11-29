@@ -1,0 +1,208 @@
+html,
+body {
+    height: 100%;
+    background-color: #bb2424;
+}
+
+a{
+  color: #000;
+}
+
+.container-sm{
+    max-width: 400px;
+    _max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-md{
+    max-width: 600px;
+    _max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h-home{
+    color:#fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    text-align: center;
+
+}
+
+.h-home small{
+    color:#fff;
+}
+
+.h3-xs{
+    margin-top:0px;
+}
+
+.home-text{
+    font-size: 16px;
+    color:#fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.mt-7{
+    margin-top: 7px !important;
+}
+
+.mt-10{
+    margin-top: 10px !important;
+}
+
+.mt-15{
+    margin-top: 15px !important;
+}
+
+.mt-25{
+    margin-top: 25px !important;
+}
+
+.mt-55{
+    margin-top: 55px !important;
+}
+
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.navbar-brand{
+    color:#fff !important;
+    font-weight: 600;
+}
+.navbar-brand:hover{
+    text-shadow: 0 1px 3px rgba(210,210,210,.5);
+}
+
+
+.footer{
+    margin-top: 30px;
+}
+
+.copyright{
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.copyright a{
+    text-decoration:underline;
+     color: #fff;
+}
+
+.copyright a:hover{
+    text-decoration:none;
+}
+
+.language-icon{
+    width:16px;
+    border: 0 !important;
+}
+
+.bg-white-div{
+    box-sizing:border-box;
+    background:#fff;
+    border-radius:4px;
+    padding:15px 10px;
+    margin:0 10px;
+}
+
+.cards-balance{
+    color:#fff;
+    font-size:28px;
+    font-weight:600;
+}
+
+.cards-info{
+    color:#fff;
+    font-size:16px;
+    text-align:right;
+}
+
+.transaction-history{
+    border-bottom: 1px solid #cecece;
+    margin-top:3px;
+    margin-bottom:3px;
+}
+
+.transaction-history-date{
+    color:#;
+    padding-right:15px;
+}
+
+.transaction-history-money{
+    text-align:right;
+}
+
+.transaction-history-money{
+    font-weight:600;
+}
+
+.transaction-history-money small{
+    font-size:55%;
+}
+
+.money-plus{
+    color:#335f18;
+}
+
+.money-minus{
+    color:#b1231f;
+}
+
+.block-credit-info, .block-all-cards{
+    text-align:center;
+}
+
+.block-all-cards div a{
+    text-decoration:underline;
+    font-size:14px;
+}
+
+.block-all-cards div:first-child a{
+    text-decoration:none;
+}
+
+.cards-number-on-white-bg{
+    font-size:15px;
+    text-align:center;
+}
+
+.cards-balance-on-white-bg{
+    font-size:24px;
+    text-align:center;
+}
+
+.cards-name-on-white-bg{
+    font-size:13px;
+    text-align:center;
+}
+
+.text-info-white{
+    color:#fff;
+}
+
+
+.invoice-date{
+    text-align:center;
+}
