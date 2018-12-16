@@ -1,5 +1,5 @@
 -- MySQL Workbench Synchronization
--- Generated: 2018-12-14 18:55
+-- Generated: 2018-12-16 21:15
 -- Model: New Model
 -- Version: 1.0
 -- Project: onlineBanking
@@ -39,8 +39,7 @@ CREATE TABLE IF NOT EXISTS `onlineBanking`.`card` (
   `card_name` VARCHAR(20) NOT NULL,
   `balance` DECIMAL(13,2) NOT NULL DEFAULT 0,
   `credit_limit` DECIMAL(13,2) NOT NULL,
-  `expiry_year` INT(4) NOT NULL,
-  `expiry_month` VARCHAR(2) NOT NULL,
+  `expiry_date` DATE NOT NULL,
   `sum_of_credit` DECIMAL(13,2) NOT NULL DEFAULT 0,
   `percent_value` DECIMAL(4,2) NOT NULL,
   PRIMARY KEY (`id`),

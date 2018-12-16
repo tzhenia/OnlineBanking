@@ -17,13 +17,13 @@
   INSERT INTO card_type (type) values ("Deposit card");
 
 -- for table card
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (1, 0000000000000001, 1, "Card name 1", 10000, 0, 2020, 12, 0, 35);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (1, 0000000000000002, 1, "Card name 2", 700.11, 1000, 2021, 11, 0, 35);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (1, 0000000000000003, 2, "Card name - deposit", 2000, 0, 2020, 12, 0, 20);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (2, 0000000000000004, 1, "Card name 1", 344.56, 0, 2025, 07, 0, 35);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (2, 0000000000000005, 2, "Card name - deposit", 10000, 0, 2020, 12, 0, 35);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (3, 0000000000000006, 1, "Card name 1", 10000, 0, 2020, 12, 0, 35);
-  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_year, expiry_month, sum_of_credit, percent_value) values (3, 0000000000000007, 2, "Card name - deposit", 10000, 0, 2020, 12, 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (1, 0000000000000001, 1, "Card name 1", 10000, 0, "2019-05-01", 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (1, 0000000000000002, 1, "Card name 2", 700.11, 1000, "2019-05-01", 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (1, 0000000000000003, 2, "Card name - deposit", 2000, 0, "2019-05-01", 0, 20);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (2, 0000000000000004, 1, "Card name 1", 344.56, 0, "2019-08-01", 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (2, 0000000000000005, 2, "Card name - deposit", 10000, 0, "2020-08-01", 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (3, 0000000000000006, 1, "Card name 1", 10000, 0, "2021-04-01", 0, 35);
+  INSERT INTO card (id_user, number, id_card_type, card_name, balance, credit_limit, expiry_date, sum_of_credit, percent_value) values (3, 0000000000000007, 2, "Card name - deposit", 10000, 0, "2021-04-01", 0, 35);
 
 -- for table transfer_type
   INSERT INTO transfer_type (type) values ("Transfer");
