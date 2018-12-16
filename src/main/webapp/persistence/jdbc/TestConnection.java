@@ -1,10 +1,10 @@
-package jdbc;
+package main.webapp.persistence.jdbc;
 
-import jdbc.connection.DBDriverBase;
-import jdbc.connection.DBTypes;
-import jdbc.connection.DBDriverFactory;
-import jdbc.connection.Database;
-import jdbc.core.Query;
+import main.webapp.persistence.jdbc.connection.DBDriverBase;
+import main.webapp.persistence.jdbc.connection.DBTypes;
+import main.webapp.persistence.jdbc.connection.DBDriverFactory;
+import main.webapp.persistence.jdbc.connection.Database;
+import main.webapp.persistence.jdbc.core.Query;
 import java.sql.ResultSet;
 public class TestConnection {
 
@@ -13,7 +13,7 @@ public class TestConnection {
      */
     public static void main(String[] args) throws Exception {
         DBDriverBase dbDriver = DBDriverFactory.createDriver(DBTypes.MYSQL);
-        Database jdbcConn = new Database(dbDriver, "jdbc:mysql://localhost:3306/onlineBanking", "root", "rootroot");
+        Database jdbcConn = new Database(dbDriver, "jdbc:mysql://localhost:3306/onlineBanking", "rootroot", "root");
         jdbcConn.connect();
         if (jdbcConn.validate()) {
             Query query = new Query(jdbcConn);

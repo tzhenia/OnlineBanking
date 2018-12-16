@@ -1,10 +1,9 @@
-package jdbc.connection;
+package main.webapp.persistence.jdbc.connection;
 
-import logging.LoggerLoader;
+import main.webapp.persistence.logging.LoggerLoader;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
-
 public class DBDriverMysql extends DBDriverBase{
     private static final String DRIVER_CLASS = "org.gjt.mm.mysql.Driver";
     private static final Logger logger = LoggerLoader.getLogger(DBDriverMysql.class);

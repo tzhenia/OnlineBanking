@@ -1,11 +1,10 @@
-package jdbc.connection;
+package main.webapp.persistence.jdbc.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
-import logging.LoggerLoader;
-
+import main.webapp.persistence.logging.LoggerLoader;
 public abstract class DBDriverBase {
 
     private final int fetchSize;
