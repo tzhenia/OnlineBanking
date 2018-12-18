@@ -43,9 +43,9 @@ public class CardType implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CardType cardType1 = (CardType) o;
-        return Objects.equals(id, cardType1.id) &&
-                Objects.equals(cardType, cardType1.cardType);
+        CardType that = (CardType) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(cardType, that.cardType);
     }
 
     @Override

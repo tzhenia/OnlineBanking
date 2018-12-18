@@ -43,9 +43,9 @@ public class Status implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Status status1 = (Status) o;
-        return Objects.equals(id, status1.id) &&
-                Objects.equals(status, status1.status);
+        Status that = (Status) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(status, that.status);
     }
 
     @Override
