@@ -2,29 +2,10 @@ package main.webapp.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "status")
-@NamedQueries({@NamedQuery(name = "Users.findAll", query = "SELECT e FROM status e")})
 
 public class Status implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "status")
     private String status;
-
 
     public Status() {
     }
@@ -32,10 +13,6 @@ public class Status implements Serializable {
     public Status(Long id, String status) {
         this.id = id;
         this.status = status;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {

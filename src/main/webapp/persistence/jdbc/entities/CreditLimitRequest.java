@@ -2,37 +2,11 @@ package main.webapp.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "credit_limit_request")
-@NamedQueries({@NamedQuery(name = "User.findAll", query = "SELECT e FROM credit_limit_request e")})
 
 public class CreditLimitRequest implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @JoinColumn(name = "id_card", referencedColumnName = "id")
-    @ManyToOne
     private Card card;
-
-    @Column(name = "credit_limit")
     private Double creditLimit;
-
-    @JoinColumn(name = "id_status", referencedColumnName = "id")
-    @ManyToOne
     private Status status;
 
 
@@ -44,10 +18,6 @@ public class CreditLimitRequest implements Serializable {
         this.card = card;
         this.creditLimit = creditLimit;
         this.status = status;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {

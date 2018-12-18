@@ -2,29 +2,10 @@ package main.webapp.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "transfer_type")
-@NamedQueries({@NamedQuery(name = "Users.findAll", query = "SELECT e FROM transfer_type e")})
 
 public class TransferType implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "type")
     private String cardType;
-
 
     public TransferType() {
     }
@@ -32,10 +13,6 @@ public class TransferType implements Serializable {
     public TransferType(Long id, String cardType) {
         this.id = id;
         this.cardType = cardType;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {
@@ -46,11 +23,11 @@ public class TransferType implements Serializable {
         this.id = id;
     }
 
-    public String getTransferType() {
+    public String getCardType() {
         return cardType;
     }
 
-    public void setTransferType(String cardType) {
+    public void setCardType(String cardType) {
         this.cardType = cardType;
     }
 

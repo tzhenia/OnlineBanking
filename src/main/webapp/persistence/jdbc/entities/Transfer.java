@@ -3,51 +3,15 @@ package main.webapp.persistence.jdbc.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "transfer")
-@NamedQueries({@NamedQuery(name = "User.findAll", query = "SELECT e FROM transfer e")})
 
 public class Transfer implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @JoinColumn(name = "id_card_from", referencedColumnName = "id")
-    @ManyToOne
     private Card card_from;
-
-    @JoinColumn(name = "id_card_to", referencedColumnName = "id")
-    @ManyToOne
     private Card card_to;
-
-    @Column(name = "sum")
     private Double sum;
-
-    @Column(name = "note")
     private String note;
-
-    @JoinColumn(name = "id_transfer_type", referencedColumnName = "id")
-    @ManyToOne
     private TransferType transferType;
-
-    @JoinColumn(name = "id_status", referencedColumnName = "id")
-    @ManyToOne
     private Status status;
-
-    @Column(name = "time")
     private Date date;
 
     public Transfer() {
@@ -62,10 +26,6 @@ public class Transfer implements Serializable {
         this.transferType = transferType;
         this.status = status;
         this.date = date;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {

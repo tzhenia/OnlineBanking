@@ -3,51 +3,17 @@ package main.webapp.persistence.jdbc.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "user")
-@NamedQueries({@NamedQuery(name = "User.findAll", query = "SELECT e FROM user e")})
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "email")
     private String email;
-
-    @Column(name = "phone")
     private Integer phone;
-
-    @Column(name = "password")
     private String password;
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "father_name")
     private String fatherName;
-
-    @Column(name = "birthday")
     private Date birthday;
-
-    @JoinColumn(name = "id_user_role", referencedColumnName = "role")
-    @ManyToOne
     private UserRole userRole;
 
     public User() {
@@ -63,10 +29,6 @@ public class User implements Serializable {
         this.fatherName = fatherName;
         this.birthday = birthday;
         this.userRole = userRole;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {

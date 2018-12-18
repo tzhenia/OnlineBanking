@@ -3,55 +3,17 @@ package main.webapp.persistence.jdbc.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "card")
-@NamedQueries({@NamedQuery(name = "User.findAll", query = "SELECT e FROM card e")})
 
 public class Card implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
     private Long id;
-
-    @JoinColumn(name = "id_user", referencedColumnName = "id")
-    @ManyToOne
     private User user;
-
-    @Column(name = "number")
     private Integer number;
-
-    @JoinColumn(name = "id_card_type", referencedColumnName = "id")
-    @ManyToOne
     private CardType cardType;
-
-    @Column(name = "card_name")
     private String cardName;
-
-    @Column(name = "balance")
     private Double balance;
-
-    @Column(name = "credit_limit")
     private Double creditLimit;
-
-    @Column(name = "expiry_date")
     private Date expiryDate;
-
-    @Column(name = "sum_of_credit")
     private Double sumOfCredit;
-
-    @Column(name = "percent_value")
     private Double percentValue;
 
     public Card() {
@@ -68,10 +30,6 @@ public class Card implements Serializable {
         this.expiryDate = expiryDate;
         this.sumOfCredit = sumOfCredit;
         this.percentValue = percentValue;
-    }
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
     }
 
     public Long getId() {
