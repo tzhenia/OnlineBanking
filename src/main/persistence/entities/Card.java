@@ -1,4 +1,4 @@
-package main.webapp.persistence.jdbc.entities;
+package main.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Date;

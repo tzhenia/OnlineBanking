@@ -1,4 +1,4 @@
-package main.webapp.persistence.jdbc.connection;
+package main.persistence.jdbc.connection;
 
 public enum DBTypes {
 

@@ -1,4 +1,4 @@
-package main.webapp.persistence.jdbc.entities;
+package main.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -95,11 +95,11 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public UserRole getRole() {
+    public UserRole getUserRole() {
         return userRole;
     }
 
-    public void UserRole(UserRole userRole) {
+    public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }
 

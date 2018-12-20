@@ -1,6 +1,6 @@
-package main.webapp.persistence.jdbc.connection;
+package main.persistence.jdbc.connection;
 
-import main.webapp.persistence.logging.LoggerLoader;
+import main.persistence.logging.LoggerLoader;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

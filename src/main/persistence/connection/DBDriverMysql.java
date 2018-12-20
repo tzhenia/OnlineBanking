@@ -1,6 +1,6 @@
-package main.webapp.persistence.jdbc.connection;
+package main.persistence.jdbc.connection;
 
-import main.webapp.persistence.logging.LoggerLoader;
+import main.persistence.logging.LoggerLoader;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;

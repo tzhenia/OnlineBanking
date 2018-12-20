@@ -1,8 +1,7 @@
-package main.webapp.persistence.jdbc.core;
+package main.persistence.jdbc.core;
 
-import main.webapp.persistence.jdbc.connection.Database;
-import main.webapp.persistence.jdbc.connection.DBDriverBase;
-import main.webapp.persistence.logging.LoggerLoader;
+import main.persistence.jdbc.connection.Database;
+import main.persistence.logging.LoggerLoader;
 import java.sql.*;
 import org.apache.log4j.Logger;
 import java.util.regex.Matcher;

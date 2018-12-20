@@ -1,18 +1,18 @@
-package main.webapp.persistence.jdbc.entities;
+package main.persistence.jdbc.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Status implements Serializable {
+public class CardType implements Serializable {
     private Long id;
-    private String status;
+    private String cardType;
 
-    public Status() {
+    public CardType() {
     }
 
-    public Status(Long id, String status) {
+    public CardType(Long id, String cardType) {
         this.id = id;
-        this.status = status;
+        this.cardType = cardType;
     }
 
     public Long getId() {
@@ -23,19 +23,19 @@ public class Status implements Serializable {
         this.id = id;
     }
 
-    public String getStatus() {
-        return status;
+    public String getCardType() {
+        return cardType;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
     }
 
     @Override
     public String toString() {
-        return "Status{" +
+        return "CardType{" +
                 "id=" + id +
-                ", status=" + status +
+                ", cardType=" + cardType +
                 '}';
     }
 
@@ -43,13 +43,13 @@ public class Status implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Status that = (Status) o;
+        CardType that = (CardType) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(status, that.status);
+                Objects.equals(cardType, that.cardType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status);
+        return Objects.hash(id, cardType);
     }
 }
