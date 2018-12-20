@@ -1,4 +1,4 @@
-package main.persistence.jdbc.connection;
+package main.persistence.connection;
 
 import main.persistence.logging.LoggerLoader;
 import java.sql.DriverManager;

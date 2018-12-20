@@ -1,12 +1,12 @@
-package main.persistence.jdbc;
+package main.persistence;
 
-import main.persistence.jdbc.connection.DBDriverBase;
-import main.persistence.jdbc.connection.DBTypes;
-import main.persistence.jdbc.connection.DBDriverFactory;
-import main.persistence.jdbc.connection.Database;
-import main.persistence.jdbc.entities.User;
-import main.persistence.jdbc.dao.impl.UserDAOImpl;
-import main.persistence.jdbc.entities.UserRole;
+import main.persistence.connection.DBDriverBase;
+import main.persistence.connection.DBTypes;
+import main.persistence.connection.DBDriverFactory;
+import main.persistence.connection.Database;
+import main.persistence.entities.User;
+import main.persistence.dao.impl.UserDAOImpl;
+import main.persistence.entities.UserRole;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -21,8 +21,8 @@ public class TestConnection {
 
         if (jdbcConn.validate()) {
             // createUser(jdbcConn, userDAOImpl);
-            update(jdbcConn, userDAOImpl, 8L);
-         // findById(jdbcConn, userDAOImpl, 6L);
+         //   update(jdbcConn, userDAOImpl, 8L);
+         // findById(jdbcConn, userDAOImpl, 5L);
          // findALL(jdbcConn, userDAOImpl);
          // delete(jdbcConn, userDAOImpl, 6L);
         }

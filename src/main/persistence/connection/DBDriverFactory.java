@@ -1,4 +1,4 @@
-package main.persistence.jdbc.connection;
+package main.persistence.connection;
 
 public final class DBDriverFactory {
 

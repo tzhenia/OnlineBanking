@@ -1,4 +1,4 @@
-package main.webapp.persistence.logging;
+package main.persistence.logging;
 
 import java.util.Properties;
 import org.apache.log4j.PropertyConfigurator;
