@@ -1,7 +1,7 @@
 package main.persistence.dao.impl;
 
 import main.persistence.dao.UserDAO;
-import main.persistence.dao.impl.enums.SQLUser;
+import main.persistence.dao.impl.enums.UserSQL;
 import main.persistence.entities.User;
 import main.persistence.entities.UserRole;
 import java.sql.Connection;
@@ -18,10 +18,43 @@ public class UserDAOImpl implements UserDAO {
         this.connection = connection;
     }
 
+    @Override
+    public void create(User user) {
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.INSERT.QUERY)) {
+            setValuesForStatement(statement, user);
+            statement.setLong(8, user.getUserRole().getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(Long id, User user){
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.UPDATE.QUERY)) {
+            setValuesForStatement(statement, user);
+            statement.setLong(8, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void delete(Long id){
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.DELETE.QUERY)) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public User findById(Long id){
         User user = new User();
 
-        try (PreparedStatement statement = connection.prepareStatement(SQLUser.SELECT_BY_ID.QUERY)) {
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_BY_ID.QUERY)) {
             statement.setLong(1, id);
             final ResultSet rs = statement.executeQuery();
             if (rs.next()) {
@@ -33,10 +66,11 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
+    @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<User>();
 
-        try (PreparedStatement statement = connection.prepareStatement(SQLUser.SELECT_ALL.QUERY)) {
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_ALL.QUERY)) {
             final ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 User user = new User();
@@ -47,36 +81,6 @@ public class UserDAOImpl implements UserDAO {
             e.printStackTrace();
         }
         return users;
-    }
-
-    @Override
-    public void create(User user) {
-        try (PreparedStatement statement = connection.prepareStatement(SQLUser.INSERT.QUERY)) {
-            setValuesForStatement(statement, user);
-            statement.setLong(8, user.getUserRole().getId());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void update(Long id, User user){
-        try (PreparedStatement statement = connection.prepareStatement(SQLUser.UPDATE.QUERY)) {
-            setValuesForStatement(statement, user);
-            statement.setLong(8, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void delete(Long id){
-        try (PreparedStatement statement = connection.prepareStatement(SQLUser.DELETE.QUERY)) {
-            statement.setLong(1, id);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     private User setValuesForUser(ResultSet rs, User user) throws SQLException {

@@ -114,7 +114,7 @@ public class Card implements Serializable {
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "CardSQL{" +
                 "id=" + id +
                 ", user=" + user +
                 ", number=" + number +
