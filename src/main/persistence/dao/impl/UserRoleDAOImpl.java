@@ -57,8 +57,7 @@ public class UserRoleDAOImpl implements UserRoleDAO{
 
     @Override
     public PreparedStatement setValuesForStatement(PreparedStatement statement, UserRole userRole) throws SQLException {
-        //statement.setString(1, userRole.getEmail());
-       // statement.setInt(2, userRole.getPhone());
+       statement.setString(1, userRole.getRole());
         return statement;
     }
 }

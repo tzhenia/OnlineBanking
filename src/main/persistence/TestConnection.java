@@ -4,6 +4,7 @@ import main.persistence.connection.DBDriverBase;
 import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
+import main.persistence.dao.impl.UserRoleDAOImpl;
 import main.persistence.entities.User;
 import main.persistence.dao.impl.UserDAOImpl;
 import main.persistence.entities.UserRole;
@@ -18,13 +19,18 @@ public class TestConnection {
         Database jdbcConn = new Database(dbDriver, "jdbc:mysql://localhost:3306/onlineBanking", "rootroot", "root");
         jdbcConn.connect();
         UserDAOImpl userDAOImpl = new UserDAOImpl(jdbcConn.getConnection());
+        UserRoleDAOImpl userRoleDAOImpl = new UserRoleDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
+            // TEST DAO User
             // createUser(jdbcConn, userDAOImpl);
             // updateUser(jdbcConn, userDAOImpl, 2L);
             // findUserById(jdbcConn, userDAOImpl, 2L);
             // findALLUser(jdbcConn, userDAOImpl);
             // deleteUser(jdbcConn, userDAOImpl, 6L);
+
+            // TEST DAO UserRole
+            createUserRole(jdbcConn, userRoleDAOImpl);
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -65,5 +71,11 @@ public class TestConnection {
 
     private static void deleteUser(Database jdbcConn, UserDAOImpl userDAOImpl, Long id) throws Exception {
         userDAOImpl.delete(id);
+    }
+
+    // TEST DAO UserRole
+    private static void createUserRole(Database jdbcConn, UserRoleDAOImpl userRoleDAOImpl) throws Exception {
+        UserRole role = new UserRole(99L, "TEST added UserRole");
+        userRoleDAOImpl.create(role);
     }
 }
