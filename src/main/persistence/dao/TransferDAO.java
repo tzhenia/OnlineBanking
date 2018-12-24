@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface TransferDAO {
     void create(Transfer transfer);
-    void update(Transfer transfer);
+    void update(Long id, Transfer transfer);
     void delete(Long id);
     Transfer findById(Long id);
     List<Transfer> findAll();

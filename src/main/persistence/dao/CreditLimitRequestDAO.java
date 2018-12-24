@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CreditLimitRequestDAO {
     void create(CreditLimitRequest creditLimitRequest);
-    void update(CreditLimitRequest creditLimitRequest);
+    void update(Long id, CreditLimitRequest creditLimitRequest);
     void delete(Long id);
     CreditLimitRequest findById(Long id);
     List<CreditLimitRequest> findAll();

@@ -4,7 +4,9 @@ import main.persistence.connection.DBDriverBase;
 import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
+import main.persistence.dao.impl.CardTypeDAOImpl;
 import main.persistence.dao.impl.UserRoleDAOImpl;
+import main.persistence.entities.CardType;
 import main.persistence.entities.User;
 import main.persistence.dao.impl.UserDAOImpl;
 import main.persistence.entities.UserRole;
@@ -20,6 +22,7 @@ public class TestConnection {
         jdbcConn.connect();
         UserDAOImpl userDAOImpl = new UserDAOImpl(jdbcConn.getConnection());
         UserRoleDAOImpl userRoleDAOImpl = new UserRoleDAOImpl(jdbcConn.getConnection());
+        CardTypeDAOImpl cardTypeDAOImpl = new CardTypeDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -34,7 +37,14 @@ public class TestConnection {
             // updateUserRole(userRoleDAOImpl, 4L);
             // deleteUserRole(userRoleDAOImpl, 3L);
             // findUserRoleById(userRoleDAOImpl, 1L);
-             findAllUserRole(userRoleDAOImpl);
+            // findAllUserRole(userRoleDAOImpl);
+
+            // TEST DAO CardType
+            // createCardType(cardTypeDAOImpl);
+            // updateCardType(cardTypeDAOImpl, 3L);
+            // deleteCardType(cardTypeDAOImpl, 3L);
+            // findCardTypeById(cardTypeDAOImpl, 3L);
+            // findAllCardType(cardTypeDAOImpl);
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -85,8 +95,8 @@ public class TestConnection {
     }
 
     private static void updateUserRole(UserRoleDAOImpl userRoleDAOImpl, Long id) throws Exception {
-        UserRole role = new UserRole(99L, "TEST update UserRole!!");
-        userRoleDAOImpl.update(id, role);
+        UserRole userRole = new UserRole(99L, "TEST update UserRole!!");
+        userRoleDAOImpl.update(id, userRole);
     }
 
     private static void deleteUserRole(UserRoleDAOImpl userRoleDAOImpl, Long id) throws Exception {
@@ -101,6 +111,34 @@ public class TestConnection {
     private static void findAllUserRole(UserRoleDAOImpl userRoleDAOImpl) throws Exception {
         List<UserRole> roles = userRoleDAOImpl.findAll();
         for (UserRole item : roles) {
+            System.out.println(item.toString());
+        }
+    }
+
+
+    // TEST DAO CardType
+    private static void createCardType(CardTypeDAOImpl cardTypeDAOImpl) throws Exception {
+        CardType cardType = new CardType(99L, "TEST added cardType");
+        cardTypeDAOImpl.create(cardType);
+    }
+
+    private static void updateCardType(CardTypeDAOImpl cardTypeDAOImpl, Long id) throws Exception {
+        CardType cardType = new CardType(99L, "TEST update cardType!!");
+        cardTypeDAOImpl.update(id, cardType);
+    }
+
+    private static void deleteCardType(CardTypeDAOImpl cardTypeDAOImpl, Long id) throws Exception {
+        cardTypeDAOImpl.delete(id);
+    }
+
+    private static void findCardTypeById(CardTypeDAOImpl cardTypeDAOImpl, Long id) throws Exception {
+        CardType cardType = cardTypeDAOImpl.findById(id);
+        System.out.println(cardType.toString());
+    }
+
+    private static void findAllCardType(CardTypeDAOImpl cardTypeDAOImpl) throws Exception {
+        List<CardType> roles = cardTypeDAOImpl.findAll();
+        for (CardType item : roles) {
             System.out.println(item.toString());
         }
     }

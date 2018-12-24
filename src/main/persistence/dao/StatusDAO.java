@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface StatusDAO {
     void create(Status status);
-    void update(Status status);
+    void update(Long id, Status status);
     void delete(Long id);
     Status findById(Long id);
     List<Status> findAll();
