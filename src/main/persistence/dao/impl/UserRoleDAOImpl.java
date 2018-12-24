@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserRoleDAOImpl implements UserRoleDAO{
@@ -29,29 +30,62 @@ public class UserRoleDAOImpl implements UserRoleDAO{
 
     @Override
     public void update(Long id, UserRole userRole) {
-
+        try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.UPDATE.QUERY)) {
+            setValuesForStatement(statement, userRole);
+            statement.setLong(2, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void delete(Long id) {
-
+        try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.DELETE.QUERY)) {
+            statement.setLong(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public UserRole findById(Long id) {
-        return null;
+        UserRole userRole = new UserRole();
+
+        try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.SELECT_BY_ID.QUERY)) {
+            statement.setLong(1, id);
+            final ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                setValuesForUserRole(rs, userRole);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userRole;
     }
 
     @Override
     public List<UserRole> findAll() {
-        return null;
+        List<UserRole> userRoles = new ArrayList<UserRole>();
+
+        try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.SELECT_ALL.QUERY)) {
+            final ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                UserRole userRole = new UserRole();
+                setValuesForUserRole(rs, userRole);
+                userRoles.add(userRole);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userRoles;
     }
 
     @Override
-    public UserRole setValuesForUser(ResultSet rs, UserRole userRole) throws SQLException {
+    public UserRole setValuesForUserRole(ResultSet rs, UserRole userRole) throws SQLException {
         userRole.setId(rs.getLong("id"));
-        //userRole.setEmail(rs.getString("email"));
-
+        userRole.setRole(rs.getString("role"));
         return userRole;
     }
 
