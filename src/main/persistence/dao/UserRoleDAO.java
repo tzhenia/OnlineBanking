@@ -12,6 +12,6 @@ public interface UserRoleDAO {
     void delete(Long id);
     UserRole findById(Long id);
     List<UserRole> findAll();
-    UserRole setValuesForUser(ResultSet rs, UserRole userRole) throws SQLException ;
+    UserRole setValuesForUserRole(ResultSet rs, UserRole userRole) throws SQLException ;
     PreparedStatement setValuesForStatement(PreparedStatement statement, UserRole userRole) throws SQLException;
 }

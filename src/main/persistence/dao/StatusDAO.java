@@ -12,6 +12,6 @@ public interface StatusDAO {
     void delete(Long id);
     Status findById(Long id);
     List<Status> findAll();
-    Status setValuesForUser(ResultSet rs, Status status) throws SQLException ;
+    Status setValuesForStatus(ResultSet rs, Status status) throws SQLException ;
     PreparedStatement setValuesForStatement(PreparedStatement statement, Status status) throws SQLException;
 }

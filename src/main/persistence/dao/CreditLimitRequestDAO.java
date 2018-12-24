@@ -12,6 +12,6 @@ public interface CreditLimitRequestDAO {
     void delete(Long id);
     CreditLimitRequest findById(Long id);
     List<CreditLimitRequest> findAll();
-    CreditLimitRequest setValuesForUser(ResultSet rs, CreditLimitRequest creditLimitRequest) throws SQLException ;
+    CreditLimitRequest setValuesForCreditLimitRequest(ResultSet rs, CreditLimitRequest creditLimitRequest) throws SQLException ;
     PreparedStatement setValuesForStatement(PreparedStatement statement, CreditLimitRequest creditLimitRequest) throws SQLException;
 }

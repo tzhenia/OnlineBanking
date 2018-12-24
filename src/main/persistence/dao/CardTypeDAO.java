@@ -12,6 +12,6 @@ public interface CardTypeDAO {
     void delete(Long id);
     CardType findById(Long id);
     List<CardType> findAll();
-    CardType setValuesForUser(ResultSet rs, CardType cardType) throws SQLException ;
+    CardType setValuesForCardType(ResultSet rs, CardType cardType) throws SQLException ;
     PreparedStatement setValuesForStatement(PreparedStatement statement, CardType cardType) throws SQLException;
 }

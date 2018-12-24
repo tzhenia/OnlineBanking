@@ -12,6 +12,6 @@ public interface TransferTypeDAO {
     void delete(Long id);
     TransferType findById(Long id);
     List<TransferType> findAll();
-    TransferType setValuesForUser(ResultSet rs, TransferType transferType) throws SQLException;
+    TransferType setValuesForTransferType(ResultSet rs, TransferType transferType) throws SQLException;
     PreparedStatement setValuesForStatement(PreparedStatement statement, TransferType transferType) throws SQLException;
 }
