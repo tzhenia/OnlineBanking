@@ -4,15 +4,8 @@ import main.persistence.connection.DBDriverBase;
 import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
-import main.persistence.dao.impl.CardTypeDAOImpl;
-import main.persistence.dao.impl.TransferTypeDAOImpl;
-import main.persistence.dao.impl.UserDAOImpl;
-import main.persistence.dao.impl.UserRoleDAOImpl;
-import main.persistence.entities.CardType;
-import main.persistence.entities.TransferType;
-import main.persistence.entities.User;
-import main.persistence.entities.UserRole;
-
+import main.persistence.dao.impl.*;
+import main.persistence.entities.*;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -27,6 +20,7 @@ public class TestConnection {
         UserRoleDAOImpl userRoleDAOImpl = new UserRoleDAOImpl(jdbcConn.getConnection());
         CardTypeDAOImpl cardTypeDAOImpl = new CardTypeDAOImpl(jdbcConn.getConnection());
         TransferTypeDAOImpl transferTypeDAOImpl = new TransferTypeDAOImpl(jdbcConn.getConnection());
+        StatusDAOImpl statusDAOImpl = new StatusDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -53,9 +47,16 @@ public class TestConnection {
             // TEST DAO TransferType
             // createTransferType(transferTypeDAOImpl);
             // updateTransferType(transferTypeDAOImpl, 3L);
-            // deleteTransferType(transferTypeDAOImpl, 3L);
-            // findTransferTypeById(transferTypeDAOImpl, 3L);
+            // deleteTransferType(transferTypeDAOImpl, 5L);
+            // findTransferTypeById(transferTypeDAOImpl, 4L);
             // findAllTransferType(transferTypeDAOImpl);
+
+            // TEST DAO Status
+            // createStatus(statusDAOImpl);
+            // updateStatus(statusDAOImpl, 5L);
+            // deleteStatus(statusDAOImpl, 5L);
+            // findStatusById(statusDAOImpl, 4L);
+            // findAllStatus(statusDAOImpl);
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -155,9 +156,9 @@ public class TestConnection {
     }
 
 
-    // TEST DAO CardType
+    // TEST DAO TransferType
     private static void createTransferType(TransferTypeDAOImpl transferTypeDAOImpl) throws Exception {
-        TransferType transferType = new TransferType(99L, "TEST TransferType");
+        TransferType transferType = new TransferType(99L, "TEST2 TransferType");
         transferTypeDAOImpl.create(transferType);
     }
 
@@ -178,6 +179,34 @@ public class TestConnection {
     private static void findAllTransferType(TransferTypeDAOImpl transferTypeDAOImpl) throws Exception {
         List<TransferType> transferTypes = transferTypeDAOImpl.findAll();
         for (TransferType item : transferTypes) {
+            System.out.println(item.toString());
+        }
+    }
+
+
+    // TEST DAO Status
+    private static void createStatus(StatusDAOImpl statusDAOImpl) throws Exception {
+        Status status = new Status(99L, "TEST2 Status");
+        statusDAOImpl.create(status);
+    }
+
+    private static void updateStatus(StatusDAOImpl statusDAOImpl, Long id) throws Exception {
+        Status status = new Status(99L, "TEST RRR!");
+        statusDAOImpl.update(id, status);
+    }
+
+    private static void deleteStatus(StatusDAOImpl statusDAOImpl, Long id) throws Exception {
+        statusDAOImpl.delete(id);
+    }
+
+    private static void findStatusById(StatusDAOImpl statusDAOImpl, Long id) throws Exception {
+        Status status = statusDAOImpl.findById(id);
+        System.out.println(status.toString());
+    }
+
+    private static void findAllStatus(StatusDAOImpl statusDAOImpl) throws Exception {
+        List<Status> status = statusDAOImpl.findAll();
+        for (Status item : status) {
             System.out.println(item.toString());
         }
     }
