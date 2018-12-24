@@ -67,7 +67,7 @@ public class TransferTypeDAOImpl implements TransferTypeDAO {
 
     @Override
     public List<TransferType> findAll() {
-        List<TransferType> transferTypes = new ArrayList<TransferType>();
+        List<TransferType> transferTypes = new ArrayList<>();
 
         try (PreparedStatement statement = connection.prepareStatement(TransferTypeSQL.SELECT_ALL.QUERY)) {
             final ResultSet rs = statement.executeQuery();

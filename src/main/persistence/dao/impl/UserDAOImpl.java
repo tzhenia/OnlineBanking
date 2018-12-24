@@ -68,7 +68,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> findAll() {
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
 
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_ALL.QUERY)) {
             final ResultSet rs = statement.executeQuery();

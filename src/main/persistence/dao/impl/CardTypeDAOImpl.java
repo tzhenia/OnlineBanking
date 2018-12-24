@@ -67,7 +67,7 @@ public class CardTypeDAOImpl implements CardTypeDAO {
 
     @Override
     public List<CardType> findAll() {
-        List<CardType> cardTypes = new ArrayList<CardType>();
+        List<CardType> cardTypes = new ArrayList<>();
 
         try (PreparedStatement statement = connection.prepareStatement(CardTypeSQL.SELECT_ALL.QUERY)) {
             final ResultSet rs = statement.executeQuery();

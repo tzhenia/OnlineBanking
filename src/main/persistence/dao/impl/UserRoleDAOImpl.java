@@ -67,7 +67,7 @@ public class UserRoleDAOImpl implements UserRoleDAO{
 
     @Override
     public List<UserRole> findAll() {
-        List<UserRole> userRoles = new ArrayList<UserRole>();
+        List<UserRole> userRoles = new ArrayList<>();
 
         try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.SELECT_ALL.QUERY)) {
             final ResultSet rs = statement.executeQuery();
