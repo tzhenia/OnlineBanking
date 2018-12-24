@@ -85,13 +85,13 @@ public class CardTypeDAOImpl implements CardTypeDAO {
     @Override
     public CardType setValuesForCardType(ResultSet rs, CardType cardType) throws SQLException {
         cardType.setId(rs.getLong("id"));
-        cardType.setCardType(rs.getString("type"));
+        cardType.setType(rs.getString("type"));
         return cardType;
     }
 
     @Override
     public PreparedStatement setValuesForStatement(PreparedStatement statement, CardType cardType) throws SQLException {
-        statement.setString(1, cardType.getCardType());
+        statement.setString(1, cardType.getType());
         return statement;
     }
 }

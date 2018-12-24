@@ -85,13 +85,13 @@ public class TransferTypeDAOImpl implements TransferTypeDAO {
     @Override
     public TransferType setValuesForTransferType(ResultSet rs, TransferType transferType) throws SQLException {
         transferType.setId(rs.getLong("id"));
-        transferType.setTransferType(rs.getString("type"));
+        transferType.setType(rs.getString("type"));
         return transferType;
     }
 
     @Override
     public PreparedStatement setValuesForStatement(PreparedStatement statement, TransferType transferType) throws SQLException {
-        statement.setString(1, transferType.getTransferType());
+        statement.setString(1, transferType.getType());
         return statement;
     }
 }

@@ -5,14 +5,14 @@ import java.util.Objects;
 
 public class CardType implements Serializable {
     private Long id;
-    private String cardType;
+    private String type;
 
     public CardType() {
     }
 
-    public CardType(Long id, String cardType) {
+    public CardType(Long id, String type) {
         this.id = id;
-        this.cardType = cardType;
+        this.type = type;
     }
 
     public Long getId() {
@@ -23,19 +23,19 @@ public class CardType implements Serializable {
         this.id = id;
     }
 
-    public String getCardType() {
-        return cardType;
+    public String getType() {
+        return type;
     }
 
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "CardType{" +
                 "id=" + id +
-                ", cardType=" + cardType +
+                ", type=" + type +
                 '}';
     }
 
@@ -45,11 +45,11 @@ public class CardType implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         CardType that = (CardType) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(cardType, that.cardType);
+                Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cardType);
+        return Objects.hash(id, type);
     }
 }

@@ -5,14 +5,14 @@ import java.util.Objects;
 
 public class TransferType implements Serializable {
     private Long id;
-    private String transferType;
+    private String type;
 
     public TransferType() {
     }
 
-    public TransferType(Long id, String transferType) {
+    public TransferType(Long id, String type) {
         this.id = id;
-        this.transferType = transferType;
+        this.type = type;
     }
 
     public Long getId() {
@@ -23,19 +23,19 @@ public class TransferType implements Serializable {
         this.id = id;
     }
 
-    public String getTransferType() {
-        return transferType;
+    public String getType() {
+        return type;
     }
 
-    public void setTransferType(String transferType) {
-        this.transferType = transferType;
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override
     public String toString() {
         return "TransferType{" +
                 "id=" + id +
-                ", transferType=" + transferType +
+                ", type=" + type +
                 '}';
     }
 
@@ -45,11 +45,11 @@ public class TransferType implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         TransferType that = (TransferType) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(transferType, that.transferType);
+                Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, transferType);
+        return Objects.hash(id, type);
     }
 }
