@@ -1,7 +1,6 @@
 package main.persistence.dao;
 
 import main.persistence.entities.UserRole;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

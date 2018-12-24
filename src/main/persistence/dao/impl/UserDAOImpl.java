@@ -83,7 +83,8 @@ public class UserDAOImpl implements UserDAO {
         return users;
     }
 
-    private User setValuesForUser(ResultSet rs, User user) throws SQLException {
+    @Override
+    public User setValuesForUser(ResultSet rs, User user) throws SQLException {
         user.setId(rs.getLong("id"));
         user.setEmail(rs.getString("email"));
         user.setPhone(rs.getInt("phone"));
@@ -96,7 +97,8 @@ public class UserDAOImpl implements UserDAO {
         return user;
     }
 
-    private PreparedStatement setValuesForStatement(PreparedStatement statement, User user) throws SQLException {
+    @Override
+    public PreparedStatement setValuesForStatement(PreparedStatement statement, User user) throws SQLException {
         statement.setString(1, user.getEmail());
         statement.setInt(2, user.getPhone());
         statement.setString(3, user.getPassword());

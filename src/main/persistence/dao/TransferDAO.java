@@ -1,6 +1,9 @@
 package main.persistence.dao;
 
 import main.persistence.entities.Transfer;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface TransferDAO {
@@ -9,4 +12,6 @@ public interface TransferDAO {
     void delete(Long id);
     Transfer findById(Long id);
     List<Transfer> findAll();
+    Transfer setValuesForUser(ResultSet rs, Transfer transfer) throws SQLException ;
+    PreparedStatement setValuesForStatement(PreparedStatement statement, Transfer transfer) throws SQLException;
 }

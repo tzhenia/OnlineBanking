@@ -1,6 +1,9 @@
 package main.persistence.dao;
 
 import main.persistence.entities.Status;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface StatusDAO {
@@ -9,4 +12,6 @@ public interface StatusDAO {
     void delete(Long id);
     Status findById(Long id);
     List<Status> findAll();
+    Status setValuesForUser(ResultSet rs, Status status) throws SQLException ;
+    PreparedStatement setValuesForStatement(PreparedStatement statement, Status status) throws SQLException;
 }

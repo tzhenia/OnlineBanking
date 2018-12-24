@@ -1,6 +1,9 @@
 package main.persistence.dao;
 
 import main.persistence.entities.Card;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CardDAO {
@@ -9,4 +12,6 @@ public interface CardDAO {
     void delete(Long id);
     Card findById(Long id);
     List<Card> findAll();
+    Card setValuesForUser(ResultSet rs, Card card) throws SQLException ;
+    PreparedStatement setValuesForStatement(PreparedStatement statement, Card card) throws SQLException;
 }
