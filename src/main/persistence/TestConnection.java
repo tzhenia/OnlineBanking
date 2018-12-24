@@ -5,11 +5,14 @@ import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
 import main.persistence.dao.impl.CardTypeDAOImpl;
+import main.persistence.dao.impl.TransferTypeDAOImpl;
+import main.persistence.dao.impl.UserDAOImpl;
 import main.persistence.dao.impl.UserRoleDAOImpl;
 import main.persistence.entities.CardType;
+import main.persistence.entities.TransferType;
 import main.persistence.entities.User;
-import main.persistence.dao.impl.UserDAOImpl;
 import main.persistence.entities.UserRole;
+
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -23,6 +26,7 @@ public class TestConnection {
         UserDAOImpl userDAOImpl = new UserDAOImpl(jdbcConn.getConnection());
         UserRoleDAOImpl userRoleDAOImpl = new UserRoleDAOImpl(jdbcConn.getConnection());
         CardTypeDAOImpl cardTypeDAOImpl = new CardTypeDAOImpl(jdbcConn.getConnection());
+        TransferTypeDAOImpl transferTypeDAOImpl = new TransferTypeDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -45,6 +49,13 @@ public class TestConnection {
             // deleteCardType(cardTypeDAOImpl, 3L);
             // findCardTypeById(cardTypeDAOImpl, 3L);
             // findAllCardType(cardTypeDAOImpl);
+
+            // TEST DAO TransferType
+            // createTransferType(transferTypeDAOImpl);
+            // updateTransferType(transferTypeDAOImpl, 3L);
+            // deleteTransferType(transferTypeDAOImpl, 3L);
+            // findTransferTypeById(transferTypeDAOImpl, 3L);
+            // findAllTransferType(transferTypeDAOImpl);
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -123,7 +134,7 @@ public class TestConnection {
     }
 
     private static void updateCardType(CardTypeDAOImpl cardTypeDAOImpl, Long id) throws Exception {
-        CardType cardType = new CardType(99L, "TEST update cardType!!");
+        CardType cardType = new CardType(99L, "TEST update");
         cardTypeDAOImpl.update(id, cardType);
     }
 
@@ -139,6 +150,34 @@ public class TestConnection {
     private static void findAllCardType(CardTypeDAOImpl cardTypeDAOImpl) throws Exception {
         List<CardType> roles = cardTypeDAOImpl.findAll();
         for (CardType item : roles) {
+            System.out.println(item.toString());
+        }
+    }
+
+
+    // TEST DAO CardType
+    private static void createTransferType(TransferTypeDAOImpl transferTypeDAOImpl) throws Exception {
+        TransferType transferType = new TransferType(99L, "TEST TransferType");
+        transferTypeDAOImpl.create(transferType);
+    }
+
+    private static void updateTransferType(TransferTypeDAOImpl transferTypeDAOImpl, Long id) throws Exception {
+        TransferType transferType = new TransferType(99L, "TEST update !");
+        transferTypeDAOImpl.update(id, transferType);
+    }
+
+    private static void deleteTransferType(TransferTypeDAOImpl transferTypeDAOImpl, Long id) throws Exception {
+        transferTypeDAOImpl.delete(id);
+    }
+
+    private static void findTransferTypeById(TransferTypeDAOImpl transferTypeDAOImpl, Long id) throws Exception {
+        TransferType transferType = transferTypeDAOImpl.findById(id);
+        System.out.println(transferType.toString());
+    }
+
+    private static void findAllTransferType(TransferTypeDAOImpl transferTypeDAOImpl) throws Exception {
+        List<TransferType> transferTypes = transferTypeDAOImpl.findAll();
+        for (TransferType item : transferTypes) {
             System.out.println(item.toString());
         }
     }
