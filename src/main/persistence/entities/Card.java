@@ -32,6 +32,10 @@ public class Card implements Serializable {
         this.percentValue = percentValue;
     }
 
+    public Card(Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -114,7 +118,7 @@ public class Card implements Serializable {
 
     @Override
     public String toString() {
-        return "CardSQL{" +
+        return "Card{" +
                 "id=" + id +
                 ", user=" + user +
                 ", number=" + number +

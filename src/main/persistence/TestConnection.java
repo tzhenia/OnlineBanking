@@ -21,6 +21,7 @@ public class TestConnection {
         CardTypeDAOImpl cardTypeDAOImpl = new CardTypeDAOImpl(jdbcConn.getConnection());
         TransferTypeDAOImpl transferTypeDAOImpl = new TransferTypeDAOImpl(jdbcConn.getConnection());
         StatusDAOImpl statusDAOImpl = new StatusDAOImpl(jdbcConn.getConnection());
+        CreditLimitRequestDAOImpl creditLimitRequestDAOImpl = new CreditLimitRequestDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -57,6 +58,13 @@ public class TestConnection {
             // deleteStatus(statusDAOImpl, 5L);
             // findStatusById(statusDAOImpl, 4L);
             // findAllStatus(statusDAOImpl);
+
+            // TEST DAO Status
+            //  createCreditLimitRequest(creditLimitRequestDAOImpl);
+            // updateCreditLimitRequest(creditLimitRequestDAOImpl, 5L);
+            // deleteCreditLimitRequest(creditLimitRequestDAOImpl, 5L);
+            // findCreditLimitRequestById(creditLimitRequestDAOImpl, 2L);
+            // findAllCreditLimitRequest(creditLimitRequestDAOImpl);
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -207,6 +215,34 @@ public class TestConnection {
     private static void findAllStatus(StatusDAOImpl statusDAOImpl) throws Exception {
         List<Status> status = statusDAOImpl.findAll();
         for (Status item : status) {
+            System.out.println(item.toString());
+        }
+    }
+
+
+    // TEST DAO CreditLimitRequest
+    private static void createCreditLimitRequest(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl) throws Exception {
+        CreditLimitRequest creditLimitRequest = new CreditLimitRequest(99L, new Card(5L), 200d, new Status(2L, "dsds"));
+        creditLimitRequestDAOImpl.create(creditLimitRequest);
+    }
+
+    private static void updateCreditLimitRequest(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl, Long id) throws Exception {
+        CreditLimitRequest creditLimitRequest = new CreditLimitRequest(99L, new Card(3L), 111d, new Status(1L, "dsds"));
+        creditLimitRequestDAOImpl.update(id, creditLimitRequest);
+    }
+
+    private static void deleteCreditLimitRequest(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl, Long id) throws Exception {
+        creditLimitRequestDAOImpl.delete(id);
+    }
+
+    private static void findCreditLimitRequestById(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl, Long id) throws Exception {
+        CreditLimitRequest creditLimitRequest = creditLimitRequestDAOImpl.findById(id);
+        System.out.println(creditLimitRequest.toString());
+    }
+
+    private static void findAllCreditLimitRequest(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl) throws Exception {
+        List<CreditLimitRequest> creditLimitRequest = creditLimitRequestDAOImpl.findAll();
+        for (CreditLimitRequest item : creditLimitRequest) {
             System.out.println(item.toString());
         }
     }
