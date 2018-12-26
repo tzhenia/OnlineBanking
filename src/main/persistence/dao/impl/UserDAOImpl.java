@@ -30,7 +30,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(Long id, User user){
+    public void update(Long id, User user) {
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, user);
             statement.setLong(8, id);
@@ -41,7 +41,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void delete(Long id){
+    public void delete(Long id) {
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.DELETE.QUERY)) {
             statement.setLong(1, id);
             statement.executeUpdate();
@@ -51,7 +51,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User findById(Long id){
+    public User findById(Long id) {
         User user = new User();
 
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_BY_ID.QUERY)) {

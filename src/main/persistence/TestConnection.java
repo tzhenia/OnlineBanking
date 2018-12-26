@@ -4,6 +4,7 @@ import main.persistence.connection.DBDriverBase;
 import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
+import main.persistence.dao.TransferDAO;
 import main.persistence.dao.impl.*;
 import main.persistence.dao.impl.enums.CardPercentValue;
 import main.persistence.entities.*;
@@ -24,6 +25,7 @@ public class TestConnection {
         StatusDAOImpl statusDAOImpl = new StatusDAOImpl(jdbcConn.getConnection());
         CreditLimitRequestDAOImpl creditLimitRequestDAOImpl = new CreditLimitRequestDAOImpl(jdbcConn.getConnection());
         CardDAOImpl cardDAOImpl = new CardDAOImpl(jdbcConn.getConnection());
+        TransferDAOImpl transferDAOImpl = new TransferDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -74,6 +76,13 @@ public class TestConnection {
             // deleteCard(cardDAOImpl, 8L);
             // findCardById(cardDAOImpl, 2L);
             // findAllCard(cardDAOImpl);
+
+            // TEST DAO Transfer
+            // createTransfer(transferDAOImpl);
+            // updateTransfer(transferDAOImpl, 5L);
+            // deleteTransfer(transferDAOImpl, 8L);
+            // findTransferById(transferDAOImpl, 2L);
+            // findAllTransfer(transferDAOImpl);
 
         } else {
             System.out.println("Database connection error. See log file for more info.");
@@ -298,6 +307,53 @@ public class TestConnection {
     private static void findAllCard(CardDAOImpl cardDAOImpl) throws Exception {
         List<Card> cards = cardDAOImpl.findAll();
         for (Card item : cards) {
+            System.out.println(item.toString());
+        }
+    }
+
+
+    // TEST DAO Transfer
+    private static void createTransfer(TransferDAOImpl transferDAOImpl) throws Exception {
+        Card cardFrom = new Card(1L);
+        Card cardTo = new Card(5L);
+        Status status = new Status(1L, "dsds");
+        TransferType transferType = new TransferType(1L, "Name");
+
+        String date = "2020-03-31 22:11:01";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // your template here
+        java.util.Date dateStr = formatter.parse(date);
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+
+        Transfer transfer = new Transfer(99L, cardFrom, cardTo, 100d, "test note", transferType, status, dateDB);transferDAOImpl.create(transfer);
+    }
+
+    private static void updateTransfer(TransferDAOImpl transferDAOImpl, Long id) throws Exception {
+        Card cardFrom = new Card(1L);
+        Card cardTo = new Card(6L);
+        Status status = new Status(1L, "dsds");
+        TransferType transferType = new TransferType(1L, "Name");
+
+        String date = "2020-03-31 22:10:01";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // your template here
+        java.util.Date dateStr = formatter.parse(date);
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+
+        Transfer transfer = new Transfer(99L, cardFrom, cardTo, 222d, "test note new", transferType, status, dateDB);
+        transferDAOImpl.update(id, transfer);
+    }
+
+    private static void deleteTransfer(TransferDAOImpl transferDAOImpl, Long id) throws Exception {
+        transferDAOImpl.delete(id);
+    }
+
+    private static void findTransferById(TransferDAOImpl transferDAOImpl, Long id) throws Exception {
+        Transfer transfer = transferDAOImpl.findById(id);
+        System.out.println(transfer.toString());
+    }
+
+    private static void findTransferCard(TransferDAOImpl transferDAOImpl) throws Exception {
+        List<Transfer> transfers = transferDAOImpl.findAll();
+        for (Transfer item : transfers) {
             System.out.println(item.toString());
         }
     }

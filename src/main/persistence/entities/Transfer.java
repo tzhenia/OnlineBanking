@@ -6,8 +6,8 @@ import java.util.Objects;
 
 public class Transfer implements Serializable {
     private Long id;
-    private Card card_from;
-    private Card card_to;
+    private Card cardFrom;
+    private Card cardTo;
     private Double sum;
     private String note;
     private TransferType transferType;
@@ -17,10 +17,10 @@ public class Transfer implements Serializable {
     public Transfer() {
     }
 
-    public Transfer(Long id, Card card_from, Card card_to, Double sum, String note, TransferType transferType, Status status, Date date) {
+    public Transfer(Long id, Card cardFrom, Card cardTo, Double sum, String note, TransferType transferType, Status status, Date date) {
         this.id = id;
-        this.card_from = card_from;
-        this.card_to = card_to;
+        this.cardFrom = cardFrom;
+        this.cardTo = cardTo;
         this.sum = sum;
         this.note = note;
         this.transferType = transferType;
@@ -36,20 +36,20 @@ public class Transfer implements Serializable {
         this.id = id;
     }
 
-    public Card getCard_from() {
-        return card_from;
+    public Card getCardFrom() {
+        return cardFrom;
     }
 
-    public void setCard_from(Card card_from) {
-        this.card_from = card_from;
+    public void setCardFrom(Card cardFrom) {
+        this.cardFrom = cardFrom;
     }
 
-    public Card getCard_to() {
-        return card_to;
+    public Card getCardTo() {
+        return cardTo;
     }
 
-    public void setCard_to(Card card_to) {
-        this.card_to = card_to;
+    public void setCardTo(Card cardTo) {
+        this.cardTo = cardTo;
     }
 
     public Double getSum() {
@@ -96,8 +96,8 @@ public class Transfer implements Serializable {
     public String toString() {
         return "Transfer{" +
                 "id=" + id +
-                ", card_from=" + card_from +
-                ", card_to=" + card_to +
+                ", cardFrom=" + cardFrom +
+                ", cardTo=" + cardTo +
                 ", sum=" + sum +
                 ", note='" + note + '\'' +
                 ", transferType=" + transferType +
@@ -112,8 +112,8 @@ public class Transfer implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Transfer transfer = (Transfer) o;
         return Objects.equals(id, transfer.id) &&
-                Objects.equals(card_from, transfer.card_from) &&
-                Objects.equals(card_to, transfer.card_to) &&
+                Objects.equals(cardFrom, transfer.cardFrom) &&
+                Objects.equals(cardTo, transfer.cardTo) &&
                 Objects.equals(sum, transfer.sum) &&
                 Objects.equals(note, transfer.note) &&
                 Objects.equals(transferType, transfer.transferType) &&
@@ -123,6 +123,6 @@ public class Transfer implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, card_from, card_to, sum, note, transferType, status, date);
+        return Objects.hash(id, cardFrom, cardTo, sum, note, transferType, status, date);
     }
 }
