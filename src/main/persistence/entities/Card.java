@@ -19,6 +19,10 @@ public class Card implements Serializable {
     public Card() {
     }
 
+    public Card(Long id) {
+        this.id = id;
+    }
+
     public Card(Long id, User user, Integer number, CardType cardType, String cardName, Double balance, Double creditLimit, Date expiryDate, Double sumOfCredit, Double percentValue) {
         this.id = id;
         this.user = user;
@@ -30,10 +34,6 @@ public class Card implements Serializable {
         this.expiryDate = expiryDate;
         this.sumOfCredit = sumOfCredit;
         this.percentValue = percentValue;
-    }
-
-    public Card(Long id) {
-        this.id = id;
     }
 
     public Long getId() {

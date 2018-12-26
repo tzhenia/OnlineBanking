@@ -5,6 +5,7 @@ import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
 import main.persistence.dao.impl.*;
+import main.persistence.dao.impl.enums.CardPercentValue;
 import main.persistence.entities.*;
 
 import java.text.SimpleDateFormat;
@@ -22,6 +23,7 @@ public class TestConnection {
         TransferTypeDAOImpl transferTypeDAOImpl = new TransferTypeDAOImpl(jdbcConn.getConnection());
         StatusDAOImpl statusDAOImpl = new StatusDAOImpl(jdbcConn.getConnection());
         CreditLimitRequestDAOImpl creditLimitRequestDAOImpl = new CreditLimitRequestDAOImpl(jdbcConn.getConnection());
+        CardDAOImpl cardDAOImpl = new CardDAOImpl(jdbcConn.getConnection());
 
         if (jdbcConn.validate()) {
             // TEST DAO User
@@ -60,11 +62,19 @@ public class TestConnection {
             // findAllStatus(statusDAOImpl);
 
             // TEST DAO Status
-            //  createCreditLimitRequest(creditLimitRequestDAOImpl);
+            // createCreditLimitRequest(creditLimitRequestDAOImpl);
             // updateCreditLimitRequest(creditLimitRequestDAOImpl, 5L);
             // deleteCreditLimitRequest(creditLimitRequestDAOImpl, 5L);
             // findCreditLimitRequestById(creditLimitRequestDAOImpl, 2L);
             // findAllCreditLimitRequest(creditLimitRequestDAOImpl);
+
+            // TEST DAO Card
+            // createCard(cardDAOImpl);
+            // updateCard(cardDAOImpl, 5L);
+            // deleteCard(cardDAOImpl, 8L);
+            // findCardById(cardDAOImpl, 2L);
+            // findAllCard(cardDAOImpl);
+
         } else {
             System.out.println("Database connection error. See log file for more info.");
         }
@@ -76,7 +86,9 @@ public class TestConnection {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // your template here
         java.util.Date dateStr = formatter.parse(date);
         java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+
         UserRole role = new UserRole(2L, "TEST");
+
         User user = new User(99L, "tzhenia111112233", 111, "111", "Женя2", "Женя", "Женя 3", dateDB, role);
         userDAOImpl.create(user);
     }
@@ -243,6 +255,49 @@ public class TestConnection {
     private static void findAllCreditLimitRequest(CreditLimitRequestDAOImpl creditLimitRequestDAOImpl) throws Exception {
         List<CreditLimitRequest> creditLimitRequest = creditLimitRequestDAOImpl.findAll();
         for (CreditLimitRequest item : creditLimitRequest) {
+            System.out.println(item.toString());
+        }
+    }
+
+    // TEST DAO Card
+    private static void createCard(CardDAOImpl cardDAOImpl) throws Exception {
+        User user= new User(1L);
+        CardType cardType = new CardType(1L, "Name");
+
+        String date = "2020-03-31";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // your template here
+        java.util.Date dateStr = formatter.parse(date);
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+
+        Card card = new Card(99L, user, 1000000001, cardType, "Card Name", 0d, 0d, dateDB, 0d, CardPercentValue.CREDIT_STANDART.PERCENT_VALUE);
+        cardDAOImpl.create(card);
+    }
+
+    private static void updateCard(CardDAOImpl cardDAOImpl, Long id) throws Exception {
+        User user= new User(1L);
+        CardType cardType = new CardType(1L, "Name");
+
+        String date = "2020-03-31";
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // your template here
+        java.util.Date dateStr = formatter.parse(date);
+        java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+
+        Card card = new Card(99L, user, 1000000001, cardType, "Card Name", 0d, 0d, dateDB, 0d, CardPercentValue.CREDIT_STANDART.PERCENT_VALUE);
+        cardDAOImpl.update(id, card);
+    }
+
+    private static void deleteCard(CardDAOImpl cardDAOImpl, Long id) throws Exception {
+        cardDAOImpl.delete(id);
+    }
+
+    private static void findCardById(CardDAOImpl cardDAOImpl, Long id) throws Exception {
+        Card card = cardDAOImpl.findById(id);
+        System.out.println(card.toString());
+    }
+
+    private static void findAllCard(CardDAOImpl cardDAOImpl) throws Exception {
+        List<Card> cards = cardDAOImpl.findAll();
+        for (Card item : cards) {
             System.out.println(item.toString());
         }
     }
