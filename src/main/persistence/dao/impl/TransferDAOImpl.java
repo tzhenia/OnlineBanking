@@ -2,6 +2,7 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.TransferDAO;
 import main.persistence.dao.impl.enums.TransferSQL;
+import main.persistence.entities.Card;
 import main.persistence.entities.Status;
 import main.persistence.entities.Transfer;
 import main.persistence.entities.TransferType;
@@ -87,13 +88,13 @@ public class TransferDAOImpl implements TransferDAO {
     @Override
     public Transfer setValuesForTransfer(ResultSet rs, Transfer transfer) throws SQLException {
         transfer.setId(rs.getLong("id"));
-        transfer.setId(rs.getLong("id_card_from"));
-        transfer.setId(rs.getLong("id_card_to"));
+        transfer.setCardFrom(new Card(rs.getLong("id_card_from")));
+        transfer.setCardTo(new Card(rs.getLong("id_card_to")));
         transfer.setSum(rs.getDouble("sum"));
         transfer.setNote(rs.getString("note"));
-        transfer.setTransferType(new TransferType(rs.getLong("id"),rs.getString("type")));
-        transfer.setStatus(new Status(rs.getLong("id"),rs.getString("status")));
-        transfer.setDate(rs.getDate("id"));
+        transfer.setTransferType(new TransferType(rs.getLong("id_transfer_type")));
+        transfer.setStatus(new Status(rs.getLong("id_status"),rs.getString("status")));
+        transfer.setDate(rs.getDate("time"));
         return transfer;
     }
 

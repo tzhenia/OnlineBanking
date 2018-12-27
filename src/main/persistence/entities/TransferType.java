@@ -10,6 +10,10 @@ public class TransferType implements Serializable {
     public TransferType() {
     }
 
+    public TransferType(Long id) {
+        this.id = id;
+    }
+
     public TransferType(Long id, String type) {
         this.id = id;
         this.type = type;

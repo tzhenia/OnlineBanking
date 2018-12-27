@@ -4,7 +4,6 @@ import main.persistence.connection.DBDriverBase;
 import main.persistence.connection.DBTypes;
 import main.persistence.connection.DBDriverFactory;
 import main.persistence.connection.Database;
-import main.persistence.dao.TransferDAO;
 import main.persistence.dao.impl.*;
 import main.persistence.dao.impl.enums.CardPercentValue;
 import main.persistence.entities.*;
@@ -79,9 +78,9 @@ public class TestConnection {
 
             // TEST DAO Transfer
             // createTransfer(transferDAOImpl);
-            // updateTransfer(transferDAOImpl, 5L);
-            // deleteTransfer(transferDAOImpl, 8L);
-            // findTransferById(transferDAOImpl, 2L);
+            // updateTransfer(transferDAOImpl, 1L);
+            // deleteTransfer(transferDAOImpl, 6L);
+            // findTransferById(transferDAOImpl, 3L);
             // findAllTransfer(transferDAOImpl);
 
         } else {
@@ -316,8 +315,8 @@ public class TestConnection {
     private static void createTransfer(TransferDAOImpl transferDAOImpl) throws Exception {
         Card cardFrom = new Card(1L);
         Card cardTo = new Card(5L);
-        Status status = new Status(1L, "dsds");
         TransferType transferType = new TransferType(1L, "Name");
+        Status status = new Status(1L, "dsds");
 
         String date = "2020-03-31 22:11:01";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // your template here
@@ -330,8 +329,8 @@ public class TestConnection {
     private static void updateTransfer(TransferDAOImpl transferDAOImpl, Long id) throws Exception {
         Card cardFrom = new Card(1L);
         Card cardTo = new Card(6L);
-        Status status = new Status(1L, "dsds");
-        TransferType transferType = new TransferType(1L, "Name");
+        TransferType transferType = new TransferType(2L, "Name");
+        Status status = new Status(3L, "dsds");
 
         String date = "2020-03-31 22:10:01";
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // your template here
@@ -351,7 +350,7 @@ public class TestConnection {
         System.out.println(transfer.toString());
     }
 
-    private static void findTransferCard(TransferDAOImpl transferDAOImpl) throws Exception {
+    private static void findAllTransfer(TransferDAOImpl transferDAOImpl) throws Exception {
         List<Transfer> transfers = transferDAOImpl.findAll();
         for (Transfer item : transfers) {
             System.out.println(item.toString());
