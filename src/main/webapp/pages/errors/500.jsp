@@ -1,4 +1,4 @@
-<jsp:include page="../includes/header-welcom.jsp" />
+<%@include file="../includes/header-welcom.jspf" %>
 
 <div class="container mt-55">
     <div class="container-sm">
@@ -13,4 +13,4 @@
     </div>
 </div>
 
-<jsp:include page="../includes/footer.jsp" />
+<%@include file="../includes/footer.jspf" %>
