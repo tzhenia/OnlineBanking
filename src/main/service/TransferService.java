@@ -84,11 +84,13 @@ public class TransferService {
         boolean check = isItPossibleToTransfer(transfer);
         if(check){
             try(DaoConnection connection = daoFactory.getConnection()) {
-                //TRANSACTION !!!
-                createTransfer(transfer);
-                increaseBalance(transfer);
-                decreaseBalance(transfer);
-                //TRANSACTION !!!
+
+                connection.startSerializableTransaction();
+                    createTransfer(transfer);
+                    increaseBalance(transfer);
+                    decreaseBalance(transfer);
+                connection.commit();
+
                 LOGGER.info("doTransfer() - Card ID from " + transfer.getCardFrom().getId() + ", Card ID to " + transfer.getCardTo().getId());
             }
         }
