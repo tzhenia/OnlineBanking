@@ -6,13 +6,12 @@ import main.persistence.datasource.PooledConnection;
 import main.persistence.exception.DaoException;
 import main.persistence.factory.connection.DaoConnection;
 import main.persistence.factory.connection.MySqlConnection;
+import main.persistence.factory.connection.enums.Error;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class MySqlDaoFactory extends DaoFactory {
-    private final static String NULLABLE_CONNECTION = "Null pointer connection!";
-    private final static String WRONG_TYPE_CONNECTION = "Wrong type connection!";
 
     private DataSource dataSource = PooledConnection.getInstance();
 
@@ -71,10 +70,10 @@ public class MySqlDaoFactory extends DaoFactory {
 
     private void checkDaoConnection(DaoConnection connection) {
         if(connection == null || connection.getNativeConnection() == null) {
-            throw new DaoException(NULLABLE_CONNECTION);
+            throw new DaoException(Error.NULLABLE_CONNECTION.value);
         }
         if(! (connection instanceof MySqlConnection)) {
-            throw new DaoException(WRONG_TYPE_CONNECTION);
+            throw new DaoException(Error.WRONG_TYPE_CONNECTION.value);
         }
     }
 }
