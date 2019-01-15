@@ -18,12 +18,6 @@ public class Servlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        System.out.println("init Servelet");
-
-        final UserService userService = UserService.getInstance();
-        User user = userService.findUserById(1L);
-        System.out.println(user.toString());
-
         super.init();
         controllerHelper = ServeletHelper.Singleton.getInstance();
     }
@@ -45,8 +39,6 @@ public class Servlet extends HttpServlet {
         if (!path.equals(ICommand.REDIRECTED)) {
             request.getRequestDispatcher(path).forward(request, response);
         }
-
-        System.out.println("1111111111111111");
     }
 
     private String getPath(HttpServletRequest request) {

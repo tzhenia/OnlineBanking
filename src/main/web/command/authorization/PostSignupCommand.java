@@ -36,8 +36,8 @@ public class PostSignupCommand implements ICommand {
 //            return REDIRECTED;
 //        }
 
-        User userDto = getDataFromRequest(request);
-        System.out.println(userDto.toString());
+ //       User userDto = getDataFromRequest(request);
+ //       System.out.println(userDto.toString());
 
 //        if(errors.isEmpty()) {
 //            User createdUser = userService.createUser(userDto);
@@ -48,7 +48,8 @@ public class PostSignupCommand implements ICommand {
 //            return REDIRECTED;
 //        }
 
-        addInvalidDataToRequest(request, userDto);
+ //       addInvalidDataToRequest(request, userDto);
+
         return Views.SIGNUP_VIEW.value;
     }
 

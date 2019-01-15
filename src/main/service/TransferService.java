@@ -98,10 +98,9 @@ public class TransferService {
 
     private boolean isItPossibleToTransfer(Transfer transfer){
         try(DaoConnection connection = daoFactory.getConnection()) {
-            CardDAO transferDAO = daoFactory.getCardDAO(connection);
 
             boolean checkBalance = CardService.getInstance().checkBalance(transfer);
-            boolean checkExpireDate = CardService.getInstance().checkBalance(transfer);
+            boolean checkExpireDate = CardService.getInstance().checkExpireDate(transfer);
 
             if(checkBalance && checkExpireDate){
                 return true;
@@ -130,21 +129,21 @@ public class TransferService {
     }
 
     public static void main(String[] args) throws Exception{
-//        TransferService transferService = TransferService.getInstance();
-//        CardService cardService = CardService.getInstance();
-//
-//        Card cardFrom = cardService.findCardById(1L);
-//        Card cardTo =  cardService.findCardById(4L);
-//
-//        Transfer transfer = Transfer.newBuilder()
-//                .setCardFrom(cardFrom)
-//                .setCardTo(cardTo)
-//                .setSum(100000000D)
-//                .setNote("TEST")
-//                .setTransferType(new TransferType(1L))
-//                .setStatus(new Status(1L))
-//                .setDate(new Date())
-//                .build();
-//        transferService.doTransfer(transfer);
+        TransferService transferService = TransferService.getInstance();
+        CardService cardService = CardService.getInstance();
+
+        Card cardFrom = cardService.findCardById(1L);
+        Card cardTo =  cardService.findCardById(4L);
+
+        Transfer transfer = Transfer.newBuilder()
+                .setCardFrom(cardFrom)
+                .setCardTo(cardTo)
+                .setSum(10000000000D)
+                .setNote("TEST")
+                .setTransferType(new TransferType(1L))
+                .setStatus(new Status(1L))
+                .setDate(new Date())
+                .build();
+        transferService.doTransfer(transfer);
     }
 }

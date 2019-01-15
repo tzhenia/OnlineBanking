@@ -65,7 +65,7 @@ public class CardService{
         try(DaoConnection connection = daoFactory.getConnection()) {
             CardDAO cardDAO = daoFactory.getCardDAO(connection);
             Card card = cardDAO.findById(transfer.getCardFrom().getId());
-            LOGGER.info("createTransfer()");
+            LOGGER.info("checkBalance()");
             if (card.getBalance() >= transfer.getSum()){
                 return true;
             }
@@ -75,7 +75,7 @@ public class CardService{
         }
     }
 
-    private boolean checkExpireDate(Transfer transfer){
+    public boolean checkExpireDate(Transfer transfer){
         try(DaoConnection connection = daoFactory.getConnection()) {
             CardDAO cardDAO = daoFactory.getCardDAO(connection);
 
