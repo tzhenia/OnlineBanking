@@ -2,9 +2,9 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.CreditLimitRequestDAO;
 import main.persistence.dao.impl.enums.CreditLimitRequestSQL;
-import main.persistence.entities.CreditLimitRequest;
-import main.persistence.entities.Card;
-import main.persistence.entities.Status;
+import main.persistence.entity.CreditLimitRequest;
+import main.persistence.entity.Card;
+import main.persistence.entity.Status;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,10 +30,10 @@ public class CreditLimitRequestDAOImpl implements CreditLimitRequestDAO {
     }
 
     @Override
-    public void update(Long id, CreditLimitRequest creditLimitRequest) {
+    public void update(CreditLimitRequest creditLimitRequest) {
         try (PreparedStatement statement = connection.prepareStatement(CreditLimitRequestSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, creditLimitRequest);
-            statement.setLong(4, id);
+            statement.setLong(4, creditLimitRequest.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +86,7 @@ public class CreditLimitRequestDAOImpl implements CreditLimitRequestDAO {
     @Override
     public CreditLimitRequest setValuesForCreditLimitRequest(ResultSet rs, CreditLimitRequest creditLimitRequest) throws SQLException {
         creditLimitRequest.setId(rs.getLong("id"));
-        creditLimitRequest.setCard(new Card(rs.getLong("id_card")));
+        creditLimitRequest.setCard(Card.newBuilder().setId(rs.getLong("id_card")).build());
         creditLimitRequest.setCreditLimit(rs.getDouble("credit_limit"));
         creditLimitRequest.setStatus(new Status(rs.getLong("s.id"), rs.getString("status")));
         return creditLimitRequest;

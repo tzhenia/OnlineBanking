@@ -2,8 +2,8 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.UserDAO;
 import main.persistence.dao.impl.enums.UserSQL;
-import main.persistence.entities.User;
-import main.persistence.entities.UserRole;
+import main.persistence.entity.User;
+import main.persistence.entity.UserRole;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,10 +30,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void update(Long id, User user) {
+    public void update(User user) {
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, user);
-            statement.setLong(8, id);
+            statement.setLong(8, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -56,6 +56,22 @@ public class UserDAOImpl implements UserDAO {
 
         try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_BY_ID.QUERY)) {
             statement.setLong(1, id);
+            final ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                setValuesForUser(rs, user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        User user = new User();
+
+        try (PreparedStatement statement = connection.prepareStatement(UserSQL.SELECT_BY_EMAIL.QUERY)) {
+            statement.setString(1, email);
             final ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 setValuesForUser(rs, user);

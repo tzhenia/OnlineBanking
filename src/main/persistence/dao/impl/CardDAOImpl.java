@@ -2,9 +2,9 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.CardDAO;
 import main.persistence.dao.impl.enums.CardSQL;
-import main.persistence.entities.Card;
-import main.persistence.entities.CardType;
-import main.persistence.entities.User;
+import main.persistence.entity.Card;
+import main.persistence.entity.CardType;
+import main.persistence.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,10 +30,10 @@ public class CardDAOImpl implements CardDAO {
     }
 
     @Override
-    public void update(Long id, Card card) {
+    public void update(Card card) {
         try (PreparedStatement statement = connection.prepareStatement(CardSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, card);
-            statement.setLong(10, id);
+            statement.setLong(10, card.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +86,7 @@ public class CardDAOImpl implements CardDAO {
     @Override
     public Card setValuesForCard(ResultSet rs, Card card) throws SQLException {
         card.setId(rs.getLong("id"));
-        card.setUser(new User (rs.getLong("id_user")));
+        card.setUser(User.newBuilder().setId(rs.getLong("id_user")).build());
         card.setNumber(rs.getInt("number"));
         card.setCardType(new CardType(rs.getLong("id_card_type"), rs.getString("type")));
         card.setCardName(rs.getString("card_name"));

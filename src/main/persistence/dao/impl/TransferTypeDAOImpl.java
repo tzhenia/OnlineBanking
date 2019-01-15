@@ -2,7 +2,7 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.TransferTypeDAO;
 import main.persistence.dao.impl.enums.TransferTypeSQL;
-import main.persistence.entities.TransferType;
+import main.persistence.entity.TransferType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,10 +29,10 @@ public class TransferTypeDAOImpl implements TransferTypeDAO {
     }
 
     @Override
-    public void update(Long id, TransferType transferType) {
+    public void update(TransferType transferType) {
         try (PreparedStatement statement = connection.prepareStatement(TransferTypeSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, transferType);
-            statement.setLong(2, id);
+            statement.setLong(2, transferType.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

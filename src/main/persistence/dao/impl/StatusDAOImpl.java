@@ -2,7 +2,7 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.StatusDAO;
 import main.persistence.dao.impl.enums.StatusSQL;
-import main.persistence.entities.Status;
+import main.persistence.entity.Status;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,10 +28,10 @@ public class StatusDAOImpl implements StatusDAO {
     }
 
     @Override
-    public void update(Long id, Status status) {
+    public void update(Status status) {
         try (PreparedStatement statement = connection.prepareStatement(StatusSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, status);
-            statement.setLong(2, id);
+            statement.setLong(2, status.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -7,38 +7,38 @@
                     <div class="col-md-12"><h1 class="h-home">Регистрация</h1></div>
                 </div>
                 <div class="row">
-                    <form>
+                    <form method="post">
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="First name">
+                                    <input type="text" class="form-control" id="inp1" placeholder="First name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputLastName" placeholder="Last name">
+                                    <input type="text" class="form-control" id="inp2" placeholder="Last name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputFatherName" placeholder="Father name">
+                                    <input type="text" class="form-control" id="inp3" placeholder="Father name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control" id="exampleInputDate" placeholder="Birthday">
+                                    <input type="date" class="form-control" id="inp4" placeholder="Birthday">
                                 </div>
                         </div>
+
                         <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone">
+                                    <input type="text" class="form-control" id="inp5" placeholder="Phone">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                    <input type="email" class="form-control" id="inp6" placeholder="Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    <input type="password" class="form-control" id="inp7" placeholder="Password">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password again">
+                                    <input type="password" class="form-control" id="inp8" placeholder="Password again">
                                 </div>
-
                         </div>
                         <div class="col-md-12 text-center">
-                            <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+                            <input type="submit" value="Зарегистрироваться" class="btn btn-success">
                         </div>
                     </form>
                 </div>

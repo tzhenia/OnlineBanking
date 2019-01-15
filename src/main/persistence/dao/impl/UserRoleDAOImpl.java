@@ -2,7 +2,7 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.UserRoleDAO;
 import main.persistence.dao.impl.enums.UserRoleSQL;
-import main.persistence.entities.UserRole;
+import main.persistence.entity.UserRole;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,10 +29,10 @@ public class UserRoleDAOImpl implements UserRoleDAO{
     }
 
     @Override
-    public void update(Long id, UserRole userRole) {
+    public void update(UserRole userRole) {
         try (PreparedStatement statement = connection.prepareStatement(UserRoleSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, userRole);
-            statement.setLong(2, id);
+            statement.setLong(2, userRole.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

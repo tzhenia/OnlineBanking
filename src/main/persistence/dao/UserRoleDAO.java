@@ -1,6 +1,6 @@
 package main.persistence.dao;
 
-import main.persistence.entities.UserRole;
+import main.persistence.entity.UserRole;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserRoleDAO {
     void create(UserRole userRole);
-    void update(Long id, UserRole userRole);
+    void update(UserRole userRole);
     void delete(Long id);
     UserRole findById(Long id);
     List<UserRole> findAll();

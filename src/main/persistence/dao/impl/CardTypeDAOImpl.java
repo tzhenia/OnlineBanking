@@ -2,7 +2,7 @@ package main.persistence.dao.impl;
 
 import main.persistence.dao.CardTypeDAO;
 import main.persistence.dao.impl.enums.CardTypeSQL;
-import main.persistence.entities.CardType;
+import main.persistence.entity.CardType;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,10 +29,10 @@ public class CardTypeDAOImpl implements CardTypeDAO {
     }
 
     @Override
-    public void update(Long id, CardType cardType) {
+    public void update(CardType cardType) {
         try (PreparedStatement statement = connection.prepareStatement(CardTypeSQL.UPDATE.QUERY)) {
             setValuesForStatement(statement, cardType);
-            statement.setLong(2, id);
+            statement.setLong(2, cardType.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
