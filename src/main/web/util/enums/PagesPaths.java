@@ -1,9 +1,9 @@
 package main.web.util.enums;
 
 public enum PagesPaths {
-    SITE_PREFIX ("/site"),
-    USER_PREFIX ("/user"),
-    ADMIN_PREFIX ("/admin"),
+    SITE_PREFIX (""),
+    USER_PREFIX (""),
+    ADMIN_PREFIX (""),
 
     HOME_PATH ("index"),
     LOGIN_PATH ("/login"),

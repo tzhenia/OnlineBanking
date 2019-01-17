@@ -7,14 +7,14 @@
         <welcome-file>/index.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet>
-        <servlet-name>Servelet</servlet-name>
-        <servlet-class>main.web.servelet.Servlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Servelet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    <!--<servlet>-->
+        <!--<servlet-name>Servelet</servlet-name>-->
+        <!--<servlet-class>main.web.servelet.Servlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Servelet</servlet-name>-->
+        <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
 
     <filter>
         <filter-name>EncodingFilter</filter-name>
