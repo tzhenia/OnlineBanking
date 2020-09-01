@@ -1,0 +1,26 @@
+@media only screen and (max-width: 475px)  {
+
+    .transaction-history-name, .transaction-history-date, .transaction-history-money, .cards-balance, .cards-info, h3{
+        text-align:center;
+    }
+
+    .h3-xs{
+        font-size:18px !important;
+    }
+
+}
+
+@media only screen and (max-width: 768px)  {
+
+   .nav>li>a {
+           padding-left: 10px !important;
+           padding-right: 10px !important;
+       }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 769px)  {
+
+    .block-credit-info div h4, .block-all-cards div h4{
+        font-size:15px;
+    }
+}
